@@ -15,12 +15,12 @@ function dateMinus(what) {
     var nw = today - what * 10000
     var newd = new Date()
     newd.setTime(nw)
-    var mthName = ['Janeiro', 'Fevereiro', 'MarÃ§o', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro']
+    var mthName = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     var mthNm = mthName[newd.getMonth()]
-    return (newd.getDate() +
-        ' de ' +
-        mthNm +
-        ' de ' +
+    return (mthNm +
+        ' ' +
+        newd.getDate() +
+        ', ' +
         newd.getFullYear() +
         ' ' +
         newd.getHours() +
@@ -39,11 +39,11 @@ $('like').on('click', function() {
     if ($(this).hasClass('liked')) {
         $(this).parents('.fb-comments-wrapper, .fb-comments-reply-wrapper').find('likes').text(parseInt($(this).parents('.fb-comments-wrapper, .fb-comments-reply-wrapper').find('likes').text()) - 1)
         $(this).removeClass('liked')
-        $(this).text('Curtir')
+        $(this).text('Like')
     } else {
         $(this).parents('.fb-comments-wrapper, .fb-comments-reply-wrapper').find('likes').text(parseInt($(this).parents('.fb-comments-wrapper, .fb-comments-reply-wrapper').find('likes').text()) + 1)
         $(this).addClass('liked')
-        $(this).text('Descurtir')
+        $(this).text('Unlike')
     }
 })
 $('reply').on('click', function() {
@@ -66,9 +66,9 @@ function handleReply(id) {
         obj.attr('id') +
         '"><div class="col-xs-10"><input type="text" value="' +
         text +
-        '" placeholder="AÃ±ade una respuesta..." class="fb-reply-input" /></div><div class="col-xs-2"><button class="fb-reply-button" onclick="javascript:postReply(' +
+        '" placeholder="Add a reply..." class="fb-reply-input" /></div><div class="col-xs-2"><button class="fb-reply-button" onclick="javascript:postReply(' +
         obj.attr('id') +
-        ');">Responder</button></div></div>')
+        ');">Reply</button></div></div>')
 }
 
 function postReply(id) {
