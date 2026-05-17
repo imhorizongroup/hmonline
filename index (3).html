@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="HolyMade — 365 daily devotionals, prayers, and biblical reflections to transform your spiritual life.">
+<meta property="og:title" content="HolyMade — A Full Year with God">
+<meta property="og:description" content="365 devotionals to strengthen your faith. 10 minutes a day that change everything.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://holymade.online/">
+<title>HolyMade — A Full Year with God</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8960C;
+    --gold-light: #F5C842;
+    --cream: #FFF8EC;
+    --cream-dark: #F3EDE3;
+    --brown: #412D17;
+    --brown-light: #6B5B4B;
+    --green: #29A356;
+    --red-bg: #FFE6E6;
+    --red-text: #B30000;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Source Sans 3', sans-serif; color: var(--brown); background: var(--cream); line-height: 1.7; }
+  .container { max-width: 720px; margin: 0 auto; padding: 0 20px; }
+  .hero { background: linear-gradient(135deg, #1a1207 0%, #2d1f0e 50%, #1a1207 100%); color: #fff; text-align: center; padding: 60px 20px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(28px, 6vw, 44px); font-weight: 800; line-height: 1.25; margin-bottom: 20px; }
+  .hero h1 span { color: var(--gold-light); }
+  .hero p { font-size: 18px; color: #ddd; max-width: 560px; margin: 0 auto; }
+  section { padding: 50px 20px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(22px, 5vw, 32px); font-weight: 700; text-align: center; margin-bottom: 30px; }
+  .audience { background: var(--cream-dark); border-radius: 12px; padding: 30px; margin: 30px auto; max-width: 720px; }
+  .audience ul { list-style: none; padding: 0; }
+  .audience li { background: #fff; padding: 12px 18px; border-radius: 8px; margin-bottom: 10px; font-size: 16px; font-weight: 600; }
+  .features { background: #fff; }
+  .feature-card { background: var(--cream-dark); padding: 20px 24px; border-radius: 10px; margin-bottom: 14px; }
+  .feature-card strong { display: block; font-size: 17px; margin-bottom: 4px; }
+  .feature-card p { font-size: 15px; color: var(--brown-light); margin: 0; }
+  .testimonials { background: var(--cream-dark); }
+  .testimonial { background: #fff; border-radius: 10px; padding: 24px; margin-bottom: 16px; border-left: 4px solid var(--gold); }
+  .testimonial p { font-style: italic; margin-bottom: 8px; }
+  .testimonial .name { font-weight: 700; font-size: 14px; color: var(--brown-light); }
+  .bonuses { background: linear-gradient(135deg, #1a1207 0%, #2d1f0e 100%); color: #fff; }
+  .bonuses .section-title { color: #fff; }
+  .bonus-card { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 10px; padding: 22px; margin-bottom: 16px; }
+  .bonus-card h3 { font-family: 'Playfair Display', serif; font-size: 18px; margin-bottom: 6px; }
+  .bonus-card p { color: #ccc; font-size: 15px; }
+  .bonus-card .price-old { text-decoration: line-through; opacity: 0.5; font-size: 14px; }
+  .bonus-card .price-free { color: var(--green); font-weight: 700; font-size: 16px; margin-left: 6px; }
+  .cta-section { text-align: center; padding: 50px 20px; background: #fff; }
+  .price-old-big { font-size: 20px; text-decoration: line-through; color: #999; display: block; margin-bottom: 4px; }
+  .price-label { font-size: 22px; font-weight: 600; color: var(--brown); display: block; }
+  .price-big { font-size: 56px; font-weight: 900; color: var(--green); display: block; margin: 8px 0 24px; }
+  .btn-cta { display: inline-block; background: var(--green); color: #fff; text-decoration: none; font-size: 18px; font-weight: 700; padding: 16px 48px; border-radius: 8px; text-transform: uppercase; letter-spacing: 1px; transition: transform 0.2s, box-shadow 0.2s; }
+  .btn-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(41,163,86,0.35); }
+  .urgency { background: var(--red-bg); color: var(--red-text); padding: 14px; border-radius: 6px; font-weight: 700; text-align: center; margin: 24px auto 0; max-width: 520px; font-size: 15px; }
+  .guarantee { text-align: center; background: var(--cream-dark); padding: 50px 20px; }
+  .guarantee-badge { font-size: 64px; margin-bottom: 12px; }
+  .guarantee p { max-width: 520px; margin: 0 auto; font-size: 16px; color: var(--brown-light); }
+  .faq { background: #fff; }
+  details { border-bottom: 1px solid #e0d8ce; padding: 14px 0; cursor: pointer; }
+  summary { font-weight: 700; font-size: 16px; list-style: none; position: relative; padding-right: 28px; }
+  summary::-webkit-details-marker { display: none; }
+  summary::after { content: '\25BC'; position: absolute; right: 0; font-size: 12px; transition: transform 0.2s; }
+  details[open] summary::after { transform: rotate(180deg); }
+  .faq-answer { margin-top: 10px; font-size: 15px; color: var(--brown-light); line-height: 1.6; }
+  footer { text-align: center; padding: 30px 20px; font-size: 13px; color: #999; background: var(--cream); }
+  footer a { color: #999; text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="container">
+    <h1><span>HolyMade 365</span> — A Full Year of Biblical Reflections to Transform Your Spiritual Life</h1>
+    <p>Stories, verses, and prayers for every day of the year. 10 minutes a day that strengthen your faith and your purpose.</p>
+  </div>
+</div>
+
+<section>
+  <div class="container">
+    <h2 class="section-title">Made for those who want more than religion: a real relationship with God</h2>
+    <div class="audience">
+      <ul>
+        <li>&#x1F64F; Parents who want to cultivate faith within their family</li>
+        <li>&#x1F4D6; Christians looking for a daily and practical devotional guide</li>
+        <li>&#x26EA; Church leaders and Bible study teachers who need fresh material</li>
+        <li>&#x2764;&#xFE0F; Anyone seeking hope, direction, and inner peace</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="features">
+  <div class="container">
+    <h2 class="section-title">&#x1F381; See What You'll Receive</h2>
+    <div class="feature-card"><strong>&#x1F4D6; 365 Complete Devotionals</strong><p>One devotional for every day of the year with a reflection, key verse, practical application, and prayer.</p></div>
+    <div class="feature-card"><strong>&#x1F9E1; Organized into 12 Life Themes</strong><p>Faith, forgiveness, gratitude, hope, love, patience, purpose, courage, humility, generosity, obedience, and peace.</p></div>
+    <div class="feature-card"><strong>&#x270D;&#xFE0F; Space for Personal Reflection</strong><p>Each devotional includes questions to meditate on and write down what God speaks to your heart.</p></div>
+    <div class="feature-card"><strong>&#x1F4F1; Instant Digital Access</strong><p>Ready to use on your phone, tablet, or computer. You can also print it out.</p></div>
+    <div class="feature-card"><strong>&#x1F504; Free Lifetime Updates</strong><p>Every time we add new content, you'll receive it at no additional cost.</p></div>
+    <div style="text-align:center; margin-top:28px;"><a href="#buy" class="btn-cta">YES! I WANT ACCESS NOW</a></div>
+  </div>
+</section>
+
+<section class="testimonials">
+  <div class="container">
+    <h2 class="section-title">What People Are Saying</h2>
+    <div class="testimonial"><p>"Every morning I open the devotional before starting my day. It has completely changed the way I face my problems."</p><div class="name">— Sarah M., Texas</div></div>
+    <div class="testimonial"><p>"I use it with my kids before bedtime. Now they ask me for 'the God story' every night. It's priceless."</p><div class="name">— James R., Florida</div></div>
+    <div class="testimonial"><p>"I teach Sunday School and this material saves me hours of preparation. Very thorough and well written."</p><div class="name">— Linda K., Georgia</div></div>
+  </div>
+</section>
+
+<section class="bonuses">
+  <div class="container">
+    <h2 class="section-title">Exclusive Bonuses When You Get Yours Today</h2>
+    <div class="bonus-card"><h3>&#x1F381; Bonus 1 — 21-Day Prayer Guide</h3><p>A step-by-step plan to develop a powerful and consistent prayer life.</p><span class="price-old">Value: $9.90</span><span class="price-free">FREE TODAY</span></div>
+    <div class="bonus-card"><h3>&#x1F381; Bonus 2 — 50 Verses to Memorize</h3><p>Cards with the most transformative Bible verses, ready to print or save on your phone.</p><span class="price-old">Value: $7.90</span><span class="price-free">FREE TODAY</span></div>
+    <div class="bonus-card"><h3>&#x1F381; Bonus 3 — Christian Gratitude Journal</h3><p>30 days of exercises to cultivate a grateful heart and see God's hand in your daily life.</p><span class="price-old">Value: $12.90</span><span class="price-free">FREE TODAY</span></div>
+  </div>
+</section>
+
+<section class="cta-section" id="buy">
+  <div class="container">
+    <h2 class="section-title">Full Access + All Bonuses</h2>
+    <span class="price-old-big"><b>from $27.90</b></span>
+    <span class="price-label">for only</span>
+    <span class="price-big">$7.90</span>
+    <a href="#" class="btn-cta">GET ACCESS NOW</a>
+    <div class="urgency">&#x26A0;&#xFE0F; LIMITED TIME OFFER! — Secure your access before the price goes up.</div>
+  </div>
+</section>
+
+<section class="guarantee">
+  <div class="guarantee-badge">&#x1F6E1;&#xFE0F;</div>
+  <h2 class="section-title">30-Day Guarantee</h2>
+  <p>If for any reason you feel this material isn't for you, simply request a refund by email. No questions asked, no hassle. Your satisfaction is guaranteed.</p>
+</section>
+
+<section class="faq">
+  <div class="container">
+    <h2 class="section-title">&#x2753; Frequently Asked Questions</h2>
+    <details><summary>Is the material physical or digital?</summary><div class="faq-answer">All content is 100% digital. You'll receive instant access after purchase and can use it on any device or print it out.</div></details>
+    <details><summary>How do I receive the material?</summary><div class="faq-answer">You'll receive the access link in your email as soon as the payment is approved.</div></details>
+    <details><summary>Do I need Bible experience to use it?</summary><div class="faq-answer">Not at all! The devotionals are simple, practical, and accessible for any Christian — ideal for beginners and seasoned believers alike.</div></details>
+    <details><summary>Can I use it for church or group settings?</summary><div class="faq-answer">Absolutely! It's perfect for Sunday School, small groups, Bible studies, and family devotionals.</div></details>
+    <details><summary>What if I don't like it?</summary><div class="faq-answer">You have an unconditional 30-day guarantee. If it's not for you, simply request a refund.</div></details>
+  </div>
+</section>
+
+<footer>
+  <p>2026 &copy; HolyMade &mdash; All rights reserved.</p>
+  <p style="margin-top:8px;"><a href="/terms.html">Terms of Use</a> &ndash; <a href="/privacy.html">Privacy Policy</a></p>
+</footer>
+
+</body>
+</html>
