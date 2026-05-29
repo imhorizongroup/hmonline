@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Confirmation Step</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .top-banner {
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 12px;
+            letter-spacing: 0.5px;
+        }
+
+        .progress-wrapper {
+            background-color: #ffffff;
+            padding: 15px 0;
+        }
+        .progress-container {
+            background-color: #e0e0e0;
+            width: 90%;
+            max-width: 1000px;
+            height: 30px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .progress-bar {
+            background-color: #00c853;
+            height: 100%;
+            width: 0%;
+            transition: width 1.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            padding-right: 15px;
+        }
+
+        .progress-text {
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .content {
+            padding: 50px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .main-text {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            font-weight: bold;
+            margin-bottom: 40px;
+        }
+
+        .text-green { color: #00c853; }
+        .text-red { color: #ff0000; }
+        .highlight-orange {
+            background-color: #ff9800;
+            color: #ffffff;
+            padding: 2px 8px;
+            margin: 0 4px;
+        }
+
+        .btn-confirm {
+            background-color: #00c853;
+            color: #ffffff;
+            border: none;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
+            cursor: pointer;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.1s, background-color 0.2s;
+        }
+        .btn-confirm:hover { background-color: #00b34a; transform: scale(1.02); }
+
+        .price {
+            color: #8bc34a;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        .btn-no {
+            background-color: #6482e6;
+            color: #ffffff;
+            border: none;
+            padding: 8px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+        }
+        .btn-no:hover { opacity: 0.8; }
+    </style>
+</head>
+<body>
+
+    <div class="top-banner">
+        DO NOT LEAVE THIS PAGE OR AN ERROR MAY OCCUR IN YOUR ORDER!
+    </div>
+
+    <div class="progress-wrapper">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+                <span class="progress-text" id="progressText">50%</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+        <p class="main-text">
+            TO ACCESS THE BONUSES AND THE PRODUCT, WE NEED YOU TO <span class="text-green">CONFIRM THE PRICE</span> BELOW TO AVOID <span class="text-red">INCORRECT CHARGES</span> TO YOUR CREDIT CARD
+        </p>
+
+        <p class="main-text">
+            TO CONFIRM THE TOTAL PRICE OF YOUR PRODUCT, CLICK THE <span class="highlight-orange">CONFIRM PRICE</span> BUTTON
+        </p>
+
+        <button class="btn-confirm" onclick="window.location.href='https://go.centerpag.com/PPU38CQCHH7?upsell=true'">CONFIRM PRICE</button>
+        
+        <div class="price">$39</div>
+        
+        <button class="btn-no" onclick="window.location.href='/thanks/'">No</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                const bar = document.getElementById('progressBar');
+                const text = document.getElementById('progressText');
+                
+                bar.style.width = '50%';
+                
+                setTimeout(function() {
+                    text.style.opacity = '1';
+                }, 1400);
+            }, 300);
+        }
+    </script>
+
+</body>
+</html>
