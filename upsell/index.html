@@ -3,274 +3,163 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HolyMade - Complete Your Order</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700;800&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Order Confirmation Step</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: #FFF8EC;
-            color: #412D17;
-            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #050505;
+            color: #ffffff;
+            text-align: center;
         }
 
-        /* Header */
-        .header {
-            background: linear-gradient(135deg, #1a1207 0%, #2d1f0e 100%);
-            color: #fff;
-            text-align: center;
-            padding: 30px 20px;
+        .top-banner {
+            background-color: #ff0000;
+            color: #ffffff;
+            font-weight: bold;
+            font-size: 1.3rem;
+            padding: 12px;
+            letter-spacing: 0.5px;
         }
-        .header-badge {
-            display: inline-block;
-            background: rgba(200,150,12,0.2);
-            border: 1px solid rgba(200,150,12,0.4);
-            color: #F5C842;
-            font-size: 13px;
-            font-weight: 700;
-            letter-spacing: 2px;
-            padding: 6px 20px;
-            border-radius: 20px;
-            margin-bottom: 16px;
-            text-transform: uppercase;
+
+        .progress-wrapper {
+            background-color: #ffffff;
+            padding: 15px 0;
         }
-        .header h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: clamp(24px, 5vw, 36px);
-            font-weight: 700;
-            margin-bottom: 10px;
+        .progress-container {
+            background-color: #e0e0e0;
+            width: 90%;
+            max-width: 1000px;
+            height: 30px;
+            margin: 0 auto;
+            position: relative;
         }
-        .header h1 span { color: #F5C842; }
-        .header p {
-            font-size: 16px;
-            color: #ccc;
-            max-width: 520px;
+
+        .progress-bar {
+            background-color: #00c853;
+            height: 100%;
+            width: 0%;
+            transition: width 1.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            box-sizing: border-box;
+            padding-right: 15px;
+        }
+
+        .progress-text {
+            color: #ffffff;
+            font-size: 0.8rem;
+            font-weight: bold;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+
+        .content {
+            padding: 50px 20px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
-        .container { max-width: 640px; margin: 0 auto; padding: 0 20px; }
-
-        /* Product Section */
-        .product-section {
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .product-card {
-            background: #fff;
-            border-radius: 14px;
-            padding: 36px 30px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-            margin-bottom: 30px;
-        }
-        .product-icon {
-            font-size: 48px;
-            margin-bottom: 16px;
-        }
-        .product-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #412D17;
-            margin-bottom: 12px;
-        }
-        .product-desc {
-            font-size: 15px;
-            color: #6B5B4B;
-            margin-bottom: 24px;
+        .main-text {
+            font-size: 1.25rem;
             line-height: 1.6;
+            font-weight: bold;
+            margin-bottom: 40px;
         }
 
-        /* What's Inside */
-        .features-list {
-            text-align: left;
-            margin-bottom: 28px;
-        }
-        .feature-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 10px 0;
-            border-bottom: 1px solid #F3EDE3;
-        }
-        .feature-item:last-child { border-bottom: none; }
-        .feature-check {
-            color: #29A356;
-            font-size: 18px;
-            margin-top: 2px;
-        }
-        .feature-text {
-            font-size: 15px;
-            color: #412D17;
-        }
-        .feature-text strong { color: #C8960C; }
-
-        /* Price */
-        .price-section {
-            text-align: center;
-            margin-bottom: 24px;
-        }
-        .price-label {
-            font-size: 15px;
-            color: #6B5B4B;
-            margin-bottom: 4px;
-        }
-        .price-value {
-            font-family: 'Playfair Display', serif;
-            font-size: 48px;
-            font-weight: 800;
-            color: #29A356;
-        }
-        .price-note {
-            font-size: 13px;
-            color: #999;
-            margin-top: 4px;
+        .text-green { color: #00c853; }
+        .text-red { color: #ff0000; }
+        .highlight-orange {
+            background-color: #ff9800;
+            color: #ffffff;
+            padding: 2px 8px;
+            margin: 0 4px;
         }
 
-        /* Buttons */
         .btn-confirm {
-            display: block;
-            width: 100%;
-            background: #29A356;
-            color: #fff;
-            text-decoration: none;
-            font-size: 17px;
-            font-weight: 700;
-            padding: 16px;
-            border-radius: 10px;
-            text-align: center;
-            letter-spacing: 0.5px;
-            transition: transform 0.2s, box-shadow 0.2s;
-            margin-bottom: 14px;
-        }
-        .btn-confirm:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(41,163,86,0.3);
-        }
-        .btn-skip {
-            display: block;
-            width: 100%;
-            background: none;
+            background-color: #00c853;
+            color: #ffffff;
             border: none;
-            color: #999;
-            font-size: 14px;
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 30px;
             cursor: pointer;
-            padding: 10px;
-            text-decoration: underline;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            transition: transform 0.1s, background-color 0.2s;
         }
-        .btn-skip:hover { color: #666; }
+        .btn-confirm:hover { background-color: #00b34a; transform: scale(1.02); }
 
-        /* Guarantee */
-        .guarantee {
-            background: #F3EDE3;
-            border-radius: 10px;
-            padding: 20px;
-            text-align: center;
-            margin-top: 10px;
-            margin-bottom: 30px;
-        }
-        .guarantee-icon { font-size: 28px; margin-bottom: 6px; }
-        .guarantee p {
-            font-size: 13px;
-            color: #6B5B4B;
-        }
-
-        /* Verse */
-        .verse-section {
-            text-align: center;
-            padding: 30px 20px 20px;
-        }
-        .verse-text {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 15px;
-            color: #6B5B4B;
-            margin-bottom: 6px;
-        }
-        .verse-ref {
-            font-size: 12px;
-            color: #C8960C;
-            font-weight: 700;
+        .price {
+            color: #8bc34a;
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 20px;
             letter-spacing: 1px;
         }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 12px;
-            color: #bbb;
+        .btn-no {
+            background-color: #6482e6;
+            color: #ffffff;
+            border: none;
+            padding: 8px 25px;
+            font-size: 1rem;
+            font-weight: bold;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: opacity 0.2s;
         }
+        .btn-no:hover { opacity: 0.8; }
     </style>
 </head>
 <body>
 
-    <div class="header">
-        <div class="container">
-            <div class="header-badge">Special Addition to Your Order</div>
-            <h1>Deepen Your Journey with <span>7 Sacred Prayers</span></h1>
-            <p>A curated collection of daily prayers designed to bring peace, protection, and gratitude into your life.</p>
-        </div>
+    <div class="top-banner">
+        DO NOT LEAVE THIS PAGE OR AN ERROR MAY OCCUR IN YOUR ORDER!
     </div>
 
-    <div class="product-section">
-        <div class="container">
-            <div class="product-card">
-                <div class="product-icon">📖</div>
-                <div class="product-title">7 Sacred Prayers for Daily Blessings</div>
-                <div class="product-desc">A beautifully crafted prayer guide with morning and evening prayers, reflections, and practical exercises to strengthen your daily walk with God.</div>
-
-                <div class="features-list">
-                    <div class="feature-item">
-                        <span class="feature-check">✓</span>
-                        <span class="feature-text"><strong>Morning Prayer</strong> — Start each day with clarity, hope, and purpose</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-check">✓</span>
-                        <span class="feature-text"><strong>Prayer for Protection</strong> — Cover your family and loved ones in God's grace</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-check">✓</span>
-                        <span class="feature-text"><strong>Prayer of Gratitude</strong> — Cultivate a thankful heart through guided reflection</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-check">✓</span>
-                        <span class="feature-text"><strong>Evening Prayer</strong> — Release your worries and rest in God's peace</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-check">✓</span>
-                        <span class="feature-text"><strong>Reflect & Apply</strong> — Practical exercises after each prayer to deepen your faith</span>
-                    </div>
-                    <div class="feature-item">
-                        <span class="feature-check">✓</span>
-                        <span class="feature-text"><strong>Instant Access</strong> — Digital PDF ready for phone, tablet, or print</span>
-                    </div>
-                </div>
-
-                <div class="price-section">
-                    <div class="price-label">Add to your order for just</div>
-                    <div class="price-value">$39.90</div>
-                    <div class="price-note">One-time payment · Instant delivery</div>
-                </div>
-
-                <a href="https://go.centerpag.com/PPU38CQCHHB?upsell=true" class="btn-confirm">YES, ADD TO MY ORDER</a>
-                <button class="btn-skip" onclick="window.location.href='/thanks/'">No thanks, I'll skip this offer</button>
-
-                <div class="guarantee">
-                    <div class="guarantee-icon">🛡️</div>
-                    <p>7-day money-back guarantee. If it's not for you, simply request a refund.</p>
-                </div>
-            </div>
-
-            <div class="verse-section">
-                <p class="verse-text">"Be still, and know that I am God."</p>
-                <p class="verse-ref">PSALM 46:10</p>
+    <div class="progress-wrapper">
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar">
+                <span class="progress-text" id="progressText">50%</span>
             </div>
         </div>
     </div>
 
-    <footer>
-        2026 &copy; HolyMade &mdash; All rights reserved.
-    </footer>
+    <div class="content">
+        <p class="main-text">
+            TO ACCESS THE BONUSES AND THE PRODUCT, WE NEED YOU TO <span class="text-green">CONFIRM THE PRICE</span> BELOW TO AVOID <span class="text-red">INCORRECT CHARGES</span> TO YOUR CREDIT CARD
+        </p>
+
+        <p class="main-text">
+            TO CONFIRM THE TOTAL PRICE OF YOUR PRODUCT, CLICK THE <span class="highlight-orange">CONFIRM PRICE</span> BUTTON
+        </p>
+
+        <button class="btn-confirm" onclick="window.location.href='https://go.centerpag.com/PPU38CQCHHB?upsell=true'">CONFIRM PRICE</button>
+        
+        <div class="price">$39</div>
+        
+        <button class="btn-no" onclick="window.location.href='https://go.centerpag.com/PPU38CQCHHB?upsell=true'">No</button>
+    </div>
+
+    <script>
+        window.onload = function() {
+            setTimeout(function() {
+                const bar = document.getElementById('progressBar');
+                const text = document.getElementById('progressText');
+                
+                bar.style.width = '50%';
+                
+                setTimeout(function() {
+                    text.style.opacity = '1';
+                }, 1400);
+            }, 300);
+        }
+    </script>
 
 </body>
 </html>
