@@ -3,18 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <title>Wait — Special Offer</title>
+  <meta name="robots" content="index, follow">
+  <title>Important — Do Not Close This Page</title>
+  <meta name="description" content="You already have access to the 7 prayers of Jesus. But I need to warn you about the healing frequencies!">
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- Vturb Preload (UPSELL 2) -->
+  <!-- Vturb Preload (UPSELL 1) -->
   <script>!function(i,n){i._plt=i._plt||(n&&n.timeOrigin?n.timeOrigin+n.now():Date.now())}(window,performance);</script>
-  <link rel="preload" href="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202ba36ae7d357e656fae6/v4/player.js" as="script">
+  <link rel="preload" href="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202b7a19dc3c42874713ee/v4/player.js" as="script">
   <link rel="preload" href="https://scripts.converteai.net/lib/js/smartplayer-wc/v4/smartplayer.js" as="script">
-  <link rel="preload" href="https://cdn.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/6a202b984d1de417672b1dcd/main.m3u8" as="fetch">
+  <link rel="preload" href="https://cdn.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/6a202b67c726a691a0681987/main.m3u8" as="fetch">
   <link rel="dns-prefetch" href="https://cdn.converteai.net">
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
   <link rel="dns-prefetch" href="https://images.converteai.net">
@@ -93,14 +95,7 @@
     .video-wrapper {
       max-width:800px;
       margin:0 auto 0;
-    }
-    .video-container {
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;
-      background:#111;
-      border-radius:10px;
-      overflow:hidden;
+      text-align:center;
     }
 
     /* ========== FOOTER ========== */
@@ -114,27 +109,25 @@
 </head>
 <body>
 
-  <!-- ===== URGENCY BAR ===== -->
+  <!-- ===== URGENCY BAR (pink - matching original) ===== -->
   <div class="urgency-bar">
-    <span class="yellow">WAIT</span>: DO NOT CLOSE THIS PAGE — WATCH THIS IMPORTANT MESSAGE BEFORE LEAVING.
+    <span class="yellow">ATTENTION</span>: DO NOT CLOSE OR REFRESH THIS PAGE, AS IT COULD CAUSE ERRORS IN YOUR PURCHASE.
   </div>
 
   <!-- ===== MAIN CONTENT ===== -->
   <div class="main-wrapper">
 
-    <!-- HEADLINE -->
+    <!-- HEADLINE (matching original) -->
     <h1 class="headline">
       <span class="important">IMPORTANT:</span>
-      You were about to miss the <span class="orange-highlight">healing frequencies...</span>
-      Watch this short message before you go!
+      You already have access to the <span class="orange-highlight">7 prayers of Jesus...</span>
+      But I need to warn you about the healing frequencies!
     </h1>
 
-    <!-- VIDEO (UPSELL 2) -->
+    <!-- VIDEO (UPSELL 1) -->
     <div class="video-wrapper">
-      <div class="video-container">
-        <vturb-smartplayer id="vid-6a202ba36ae7d357e656fae6" style="display:block;margin:0 auto;width:100%;max-width:800px"></vturb-smartplayer>
-        <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202ba36ae7d357e656fae6/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
-      </div>
+      <vturb-smartplayer id="vid-6a202b7a19dc3c42874713ee" style="display:block;margin:0 auto;width:100%;max-width:800px"></vturb-smartplayer>
+      <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202b7a19dc3c42874713ee/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
     </div>
 
   </div>
@@ -145,22 +138,36 @@
   </div>
 
   <script>
+    /* ========== FOOTER YEAR ========== */
     document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-    /* Prevent back again */
-    history.pushState(null, '', location.href);
-    window.addEventListener('popstate', function() {
+    /* ========== ANTI BACK-BUTTON ========== */
+    (function() {
       history.pushState(null, '', location.href);
-    });
+      window.addEventListener('popstate', function() {
+        history.pushState(null, '', location.href);
+        window.location.href = 'back.html';
+      });
+    })();
 
-    /* Protections */
+    /* ========== PROTECTIONS ========== */
     document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'F12') { e.preventDefault(); return false; }
       if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) { e.preventDefault(); return false; }
       if (e.ctrlKey && e.key === 'u') { e.preventDefault(); return false; }
+      if (e.ctrlKey && e.key === 's') { e.preventDefault(); return false; }
     });
     document.addEventListener('dragstart', function(e) { e.preventDefault(); });
+    (function() {
+      var threshold = 160;
+      setInterval(function() {
+        if (window.outerWidth - window.innerWidth > threshold ||
+            window.outerHeight - window.innerHeight > threshold) {
+          document.body.innerHTML = '';
+        }
+      }, 1500);
+    })();
   </script>
 
 </body>
