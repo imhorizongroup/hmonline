@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-  <title>Wait — Special Offer Inside</title>
-  <meta name="description" content="Don't miss this exclusive opportunity.">
+  <title>Wait — Special Offer</title>
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN">
   <meta http-equiv="X-XSS-Protection" content="1; mode=block">
   <meta http-equiv="X-Content-Type-Options" content="nosniff">
@@ -20,13 +19,13 @@
   <link rel="dns-prefetch" href="https://scripts.converteai.net">
   <link rel="dns-prefetch" href="https://images.converteai.net">
   <link rel="dns-prefetch" href="https://license.vturb.com">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@400;600;700;900&display=swap" rel="stylesheet">
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
     body {
-      font-family:'Poppins', sans-serif;
-      background:#0a0a1a;
+      font-family:'Red Hat Display', sans-serif;
+      background:linear-gradient(20deg, #181c76, #020430);
       color:#fff;
       min-height:100vh;
       overflow-x:hidden;
@@ -38,143 +37,71 @@
     img { -webkit-user-drag:none; user-select:none; pointer-events:none; }
     a { text-decoration:none; color:inherit; }
 
-    /* ========== URGENCY BAR ========== */
+    /* ========== URGENCY BAR (pink) ========== */
     .urgency-bar {
-      background:#8b0000;
-      padding:12px 20px;
+      background:#f50052;
+      padding:15px 20px;
       text-align:center;
-      font-size:14px;
-      font-weight:600;
+      font-size:18px;
+      font-weight:700;
       color:#fff;
-      letter-spacing:0.3px;
       line-height:1.5;
     }
-    .urgency-bar .accent {
-      color:#ffcc00;
-      font-weight:700;
+    .urgency-bar .yellow {
+      color:#fff400;
+      font-weight:900;
     }
     @media(max-width:600px) {
-      .urgency-bar { font-size:12px; padding:10px 14px; }
+      .urgency-bar { font-size:14px; padding:12px 16px; }
     }
 
     /* ========== MAIN CONTAINER ========== */
     .main-wrapper {
-      max-width:860px;
+      max-width:900px;
       margin:0 auto;
-      padding:40px 20px 60px;
+      padding:48px 20px 60px;
+    }
+    @media(max-width:600px) {
+      .main-wrapper { padding:24px 12px 40px; }
     }
 
-    /* ========== HEADER TEXT ========== */
+    /* ========== HEADLINE ========== */
     .headline {
       text-align:center;
-      font-family:'Montserrat', sans-serif;
-      font-size:26px;
-      font-weight:600;
-      line-height:1.55;
-      color:#d0d0e0;
+      font-size:36px;
+      font-weight:700;
+      line-height:1.35;
+      color:#fff;
       margin-bottom:36px;
     }
-    .headline .red-bold { color:#e53935; font-weight:800; }
-    .headline .gold { color:#ffd700; font-weight:800; }
+    .headline .important {
+      color:#f50052;
+      display:block;
+      margin-bottom:4px;
+    }
+    .headline .orange-highlight {
+      background:#ff914d;
+      color:#fff;
+      padding:2px 8px;
+      border-radius:4px;
+    }
     @media(max-width:600px) {
-      .headline { font-size:18px; line-height:1.5; margin-bottom:24px; }
+      .headline { font-size:20px; line-height:1.35; margin-bottom:24px; }
     }
 
     /* ========== VIDEO SECTION ========== */
     .video-wrapper {
       max-width:800px;
-      margin:0 auto 32px;
-      border-radius:12px;
-      overflow:hidden;
-      box-shadow:0 8px 40px rgba(0,0,0,0.5);
-    }
-    .video-container {
-      position:relative;
-      width:100%;
-      aspect-ratio:16/9;
-      background:#111;
-    }
-
-    /* ========== VIEWER COUNTER ========== */
-    .viewer-counter {
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:8px;
-      margin-bottom:36px;
-      font-size:14px;
-      color:#aaa;
-    }
-    .viewer-dot {
-      width:10px; height:10px;
-      background:#22c55e;
-      border-radius:50%;
-      animation:blink 1.4s infinite;
-    }
-    @keyframes blink {
-      0%,100% { opacity:1; }
-      50% { opacity:0.3; }
-    }
-    .viewer-count { font-weight:700; color:#fff; }
-
-    /* ========== DISCOUNT BANNER ========== */
-    .discount-section {
-      background:linear-gradient(135deg, #8b0000 0%, #5c0000 100%);
-      border-radius:16px;
-      padding:40px 36px;
+      margin:0 auto 0;
       text-align:center;
-      position:relative;
-      overflow:hidden;
-      margin-bottom:40px;
-    }
-    .discount-badge {
-      display:inline-block;
-      background:rgba(255,255,255,0.15);
-      border:1px solid rgba(255,255,255,0.25);
-      border-radius:50px;
-      padding:6px 20px;
-      font-size:12px;
-      font-weight:700;
-      letter-spacing:2px;
-      text-transform:uppercase;
-      color:#fff;
-      margin-bottom:16px;
-      position:relative;
-      z-index:1;
-    }
-    .discount-title {
-      font-family:'Montserrat', sans-serif;
-      font-size:32px;
-      font-weight:900;
-      color:#fff;
-      line-height:1.3;
-      margin-bottom:8px;
-      position:relative;
-      z-index:1;
-    }
-    .discount-title .highlight {
-      color:#ffd700;
-      text-shadow:0 0 20px rgba(255,215,0,0.3);
-    }
-    .discount-subtitle {
-      font-size:16px;
-      color:rgba(255,255,255,0.85);
-      position:relative;
-      z-index:1;
-    }
-    @media(max-width:600px) {
-      .discount-section { padding:28px 20px; }
-      .discount-title { font-size:22px; }
-      .discount-subtitle { font-size:14px; }
     }
 
     /* ========== FOOTER ========== */
     .footer {
       text-align:center;
-      padding:30px 20px;
-      color:#444;
+      padding:40px 20px;
+      color:rgba(255,255,255,0.2);
       font-size:12px;
-      border-top:1px solid rgba(255,255,255,0.05);
     }
   </style>
 </head>
@@ -182,7 +109,7 @@
 
   <!-- ===== URGENCY BAR ===== -->
   <div class="urgency-bar">
-    ⏳ WAIT — Before you leave, watch this <span class="accent">important message</span>.
+    <span class="yellow">WAIT</span>: DO NOT CLOSE THIS PAGE — WATCH THIS IMPORTANT MESSAGE BEFORE LEAVING.
   </div>
 
   <!-- ===== MAIN CONTENT ===== -->
@@ -190,63 +117,34 @@
 
     <!-- HEADLINE -->
     <h1 class="headline">
-      You were <span class="red-bold">about to miss</span> something that could change everything.
-      Watch this short video and claim your <span class="gold">exclusive 20% OFF</span>.
+      <span class="important">IMPORTANT:</span>
+      You were about to miss the <span class="orange-highlight">healing frequencies...</span>
+      Watch this short message before you go!
     </h1>
 
     <!-- VIDEO (UPSELL 2) -->
     <div class="video-wrapper">
-      <div class="video-container">
-        <vturb-smartplayer id="vid-6a202ba36ae7d357e656fae6" style="display:block;margin:0 auto;width:100%;max-width:800px"></vturb-smartplayer>
-        <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202ba36ae7d357e656fae6/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
-      </div>
-    </div>
-
-    <!-- VIEWER COUNTER -->
-    <div class="viewer-counter">
-      <span class="viewer-dot"></span>
-      <span><span class="viewer-count" id="viewerCount">312</span> people watching now</span>
-    </div>
-
-    <!-- DISCOUNT BANNER -->
-    <div class="discount-section">
-      <div class="discount-badge">⏳ LAST CHANCE</div>
-      <div class="discount-title">
-        EXCLUSIVE <span class="highlight">20% OFF</span> — ONLY ON THIS PAGE
-      </div>
-      <p class="discount-subtitle">This offer disappears the moment you close this tab.</p>
+      <vturb-smartplayer id="vid-6a202ba36ae7d357e656fae6" style="display:block;margin:0 auto;width:100%;max-width:800px"></vturb-smartplayer>
+      <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202ba36ae7d357e656fae6/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
     </div>
 
   </div>
 
   <!-- FOOTER -->
   <div class="footer">
-    All rights reserved © <span id="footerYear"></span> · This site is not affiliated with Facebook™ or Google™.
+    All rights reserved © <span id="footerYear"></span>
   </div>
 
   <script>
-    /* ========== FOOTER YEAR ========== */
     document.getElementById('footerYear').textContent = new Date().getFullYear();
 
-    /* ========== VIEWER COUNTER ========== */
-    (function() {
-      var count = Math.floor(Math.random() * 201) + 250; // 250-450
-      var el = document.getElementById('viewerCount');
-      el.textContent = count;
-      setInterval(function() {
-        var delta = Math.floor(Math.random() * 21) - 10;
-        count = Math.max(250, Math.min(450, count + delta));
-        el.textContent = count;
-      }, 3000);
-    })();
-
-    /* ========== PREVENT BACK AGAIN ========== */
+    /* Prevent back again */
     history.pushState(null, '', location.href);
     window.addEventListener('popstate', function() {
       history.pushState(null, '', location.href);
     });
 
-    /* ========== PROTECTIONS ========== */
+    /* Protections */
     document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
     document.addEventListener('keydown', function(e) {
       if (e.key === 'F12') { e.preventDefault(); return false; }
