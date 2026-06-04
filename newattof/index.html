@@ -142,14 +142,25 @@ ttq.load('D7276JRC77U0IM2CU4KG');ttq.page();
     width: 100% !important;
     background: var(--red) !important;
     text-align: center;
-    padding: 14px 20px;
+    padding: 12px 20px 10px;
     font-family: 'Cinzel', serif;
-    font-size: clamp(13px, 2vw, 16px);
-    font-weight: 700;
-    letter-spacing: 1px;
     color: white;
     animation: pulse-bar 2s ease-in-out infinite;
     z-index: 10;
+  }
+  .urgency-main {
+    font-size: clamp(13px, 2vw, 16px);
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .urgency-date-line {
+    font-family: 'Lora', Georgia, serif;
+    font-size: 11px;
+    font-weight: 400;
+    font-style: italic;
+    opacity: 0.85;
+    margin-top: 4px;
+    letter-spacing: 0.3px;
   }
   @keyframes pulse-bar {
     0%, 100% { background: #C0392B; }
@@ -414,25 +425,32 @@ ttq.load('D7276JRC77U0IM2CU4KG');ttq.page();
 
   <!-- URGENCY BAR -->
   <div id="newattof-urgency-bar">
-    ⚠️   FINAL DAY — This Is Your Last Chance To Watch Before It's Gone Forever   ⚠️
+    <div class="urgency-main">⚠️  FINAL DAY — This Is Your Last Chance To Watch Before It's Gone Forever  ⚠️</div>
+    <div class="urgency-date-line">Discovered on <span id="urgency-date"></span> · Updated 2 hours ago</div>
   </div>
+  <script>
+  (function(){
+    var d=new Date();
+    var mm=String(d.getMonth()+1).padStart(2,'0');
+    var dd=String(d.getDate()).padStart(2,'0');
+    var yy=d.getFullYear();
+    document.getElementById('urgency-date').textContent=mm+'/'+dd+'/'+yy;
+  })();
+  </script>
 
   <!-- TICKER -->
   <div id="newattof-ticker">
     <div class="ticker-track">
       <span>Listen and Manifest Money Today</span>
-      <span>Archangel Michael Is Ready To Act</span>
-      <span>The Sacred Chant of Padre Pio</span>
+      <span>The Sacred Chant</span>
       <span>Your Financial Miracle In 24 Hours</span>
       <span>Don't Ignore The Sign</span>
       <span>Listen and Manifest Money Today</span>
-      <span>Archangel Michael Is Ready To Act</span>
-      <span>The Sacred Chant of Padre Pio</span>
+      <span>The Sacred Chant</span>
       <span>Your Financial Miracle In 24 Hours</span>
       <span>Don't Ignore The Sign</span>
       <span>Listen and Manifest Money Today</span>
-      <span>Archangel Michael Is Ready To Act</span>
-      <span>The Sacred Chant of Padre Pio</span>
+      <span>The Sacred Chant</span>
       <span>Your Financial Miracle In 24 Hours</span>
       <span>Don't Ignore The Sign</span>
     </div>
