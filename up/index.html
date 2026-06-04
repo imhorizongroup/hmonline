@@ -25,56 +25,90 @@
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
+
+    /* === PROTEÇÕES CONTRA INJEÇÃO DO VTURB === */
+    html, body {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:100% !important;
+      float:none !important;
+      transform:none !important;
+      overflow-x:hidden !important;
+    }
+
     body {
       font-family:'Red Hat Display', sans-serif;
-      background:linear-gradient(20deg, #181c76, #020430);
+      background:linear-gradient(20deg, #181c76, #020430) !important;
       color:#fff;
       min-height:100vh;
-      overflow-x:hidden;
       -webkit-font-smoothing:antialiased;
       user-select:none;
       -webkit-user-select:none;
       -moz-user-select:none;
     }
+
     img { -webkit-user-drag:none; user-select:none; pointer-events:none; }
     a { text-decoration:none; color:inherit; }
 
-    /* ========== URGENCY BAR (pink) ========== */
+    /* ========== URGENCY BAR ========== */
     .urgency-bar {
-      background:#f50052;
-      padding:15px 20px;
-      text-align:center;
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:100% !important;
+      left:0 !important;
+      right:0 !important;
+      top:0 !important;
+      float:none !important;
+      transform:none !important;
+      background:#f50052 !important;
+      padding:15px 20px !important;
+      text-align:center !important;
       font-size:18px;
       font-weight:700;
       color:#fff;
       line-height:1.5;
+      z-index:9999 !important;
     }
     .urgency-bar .yellow {
       color:#fff400;
       font-weight:900;
     }
     @media(max-width:600px) {
-      .urgency-bar { font-size:14px; padding:12px 16px; }
+      .urgency-bar { font-size:14px !important; padding:12px 16px !important; }
     }
 
     /* ========== MAIN CONTAINER ========== */
     .main-wrapper {
-      max-width:900px;
-      margin:0 auto;
-      padding:48px 20px 60px;
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:900px !important;
+      margin:0 auto !important;
+      padding:48px 20px 60px !important;
+      float:none !important;
+      transform:none !important;
+      left:auto !important;
+      right:auto !important;
     }
     @media(max-width:600px) {
-      .main-wrapper { padding:24px 12px 40px; }
+      .main-wrapper { padding:24px 12px 40px !important; }
     }
 
     /* ========== HEADLINE ========== */
     .headline {
-      text-align:center;
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      text-align:center !important;
       font-size:36px;
       font-weight:700;
       line-height:1.35;
       color:#fff;
       margin-bottom:36px;
+      float:none !important;
+      transform:none !important;
     }
     .headline .important {
       color:#f50052;
@@ -88,28 +122,71 @@
       border-radius:4px;
     }
     @media(max-width:600px) {
-      .headline { font-size:20px; line-height:1.35; margin-bottom:24px; }
+      .headline { font-size:20px !important; line-height:1.35; margin-bottom:24px; }
     }
 
     /* ========== VIDEO SECTION ========== */
     .video-wrapper {
-      max-width:800px;
-      margin:0 auto 0;
-      text-align:center;
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:800px !important;
+      margin:0 auto !important;
+      text-align:center !important;
+      float:none !important;
+      transform:none !important;
+      overflow:hidden;
+    }
+
+    /* Força o player Vturb a ficar contido */
+    .video-wrapper vturb-smartplayer,
+    .video-wrapper iframe,
+    .video-wrapper [id^="vid-"] {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:800px !important;
+      margin:0 auto !important;
+      float:none !important;
     }
 
     /* ========== FOOTER ========== */
     .footer {
-      text-align:center;
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      text-align:center !important;
       padding:40px 20px;
       color:rgba(255,255,255,0.2);
       font-size:12px;
+      float:none !important;
+      transform:none !important;
+    }
+
+    /* === NEUTRALIZA WRAPPERS INJETADOS PELO VTURB === */
+    body > div:not(.urgency-bar):not(.main-wrapper):not(.footer) {
+      position:static !important;
+      display:block !important;
+      width:100% !important;
+      max-width:100% !important;
+      float:none !important;
+      transform:none !important;
+      left:auto !important;
+      right:auto !important;
+    }
+
+    /* Garante que nenhum wrapper fixo/absoluto do Vturb estrague o layout */
+    body > [style*="position: fixed"],
+    body > [style*="position: absolute"],
+    body > [style*="position:fixed"],
+    body > [style*="position:absolute"] {
+      position:relative !important;
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== URGENCY BAR (pink - matching original) ===== -->
+  <!-- ===== URGENCY BAR ===== -->
   <div class="urgency-bar">
     <span class="yellow">ATTENTION</span>: DO NOT CLOSE OR REFRESH THIS PAGE, AS IT COULD CAUSE ERRORS IN YOUR PURCHASE.
   </div>
@@ -117,7 +194,7 @@
   <!-- ===== MAIN CONTENT ===== -->
   <div class="main-wrapper">
 
-    <!-- HEADLINE (matching original) -->
+    <!-- HEADLINE -->
     <h1 class="headline">
       <span class="important">IMPORTANT:</span>
       You already have access to the <span class="orange-highlight">7 prayers of Jesus...</span>
@@ -167,6 +244,25 @@
           document.body.innerHTML = '';
         }
       }, 1500);
+    })();
+
+    /* ========== MUTATION OBSERVER — PROTEGE LAYOUT DO VTURB ========== */
+    (function() {
+      var observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          mutation.addedNodes.forEach(function(node) {
+            if (node.nodeType === 1 && node.parentNode === document.body) {
+              // Se o Vturb injetar um wrapper direto no body, neutraliza
+              if (!node.classList.contains('urgency-bar') &&
+                  !node.classList.contains('main-wrapper') &&
+                  !node.classList.contains('footer')) {
+                node.style.cssText += 'position:static!important;display:block!important;width:100%!important;float:none!important;transform:none!important;';
+              }
+            }
+          });
+        });
+      });
+      observer.observe(document.body, { childList: true, subtree: false });
     })();
   </script>
 
