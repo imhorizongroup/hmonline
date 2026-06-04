@@ -289,15 +289,16 @@ ttq.load('D7276JRC77U0IM2CU4KG');ttq.page();
   }
   .media-logo {
     font-family: Georgia, 'Times New Roman', serif;
-    font-size: clamp(14px, 2.4vw, 22px); font-weight: bold;
-    opacity: 0.5; color: #d4c9b5; letter-spacing: -0.5px;
+    font-size: clamp(20px, 3.5vw, 32px); font-weight: bold;
+    opacity: 0.75; color: #d4c9b5; letter-spacing: -0.5px;
     transition: opacity 0.2s; white-space: nowrap;
-    filter: grayscale(1) brightness(0.8);
+    -webkit-text-stroke: 0.5px rgba(201,168,76,0.35);
+    text-shadow: 0 0 8px rgba(201,168,76,0.1);
   }
-  .media-logo:hover { opacity: 0.75; filter: grayscale(0.5) brightness(1); }
-  .media-logo.cnn { color: #cc0001; font-size: clamp(16px, 3vw, 28px); }
-  .media-logo.fox { color: #003087; }
-  .media-logo.nyt { font-size: clamp(11px, 1.8vw, 17px); font-style: italic; letter-spacing: 0; }
+  .media-logo:hover { opacity: 1; -webkit-text-stroke: 0.5px rgba(201,168,76,0.6); }
+  .media-logo.cnn { color: #e84040; font-size: clamp(24px, 4vw, 38px); opacity: 0.85; }
+  .media-logo.fox { color: #4a7abf; opacity: 0.85; }
+  .media-logo.nyt { font-size: clamp(16px, 2.5vw, 24px); font-style: italic; letter-spacing: 0; }
 
   /* =============================================
      FACEBOOK COMMENTS
