@@ -1,101 +1,409 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thank You - HolyMade</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
-    <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Source Sans 3', sans-serif;
-            background: #FFF8EC;
-            color: #412D17;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 40px 20px;
-            text-align: center;
-        }
-        .card {
-            background: #fff;
-            border-radius: 16px;
-            padding: 50px 40px;
-            max-width: 540px;
-            width: 100%;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.06);
-        }
-        .check {
-            font-size: 56px;
-            margin-bottom: 20px;
-        }
-        h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 32px;
-            color: #412D17;
-            margin-bottom: 12px;
-        }
-        .subtitle {
-            font-size: 18px;
-            color: #6B5B4B;
-            margin-bottom: 30px;
-        }
-        .instructions {
-            background: #F3EDE3;
-            border-radius: 10px;
-            padding: 24px;
-            text-align: left;
-            margin-bottom: 28px;
-        }
-        .instructions p {
-            font-size: 15px;
-            color: #412D17;
-            margin-bottom: 10px;
-            line-height: 1.6;
-        }
-        .instructions p:last-child { margin-bottom: 0; }
-        .instructions strong { color: #C8960C; }
-        .verse {
-            font-family: 'Playfair Display', serif;
-            font-style: italic;
-            font-size: 16px;
-            color: #6B5B4B;
-            margin-bottom: 6px;
-        }
-        .verse-ref {
-            font-size: 13px;
-            color: #C8960C;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-        footer {
-            margin-top: 30px;
-            font-size: 12px;
-            color: #999;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You — Your Order Is Confirmed</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0a14;
+    font-family: 'Lora', Georgia, serif;
+    color: #e8e0d0;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+
+  .page-wrapper {
+    width: 100%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+
+  /* ═══ CONFIRMED BADGE ═══ */
+  .confirmed-badge {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #4CAF50 0%, #2E7D32 100%);
+    box-shadow: 0 0 30px rgba(76, 175, 80, 0.3), 0 0 60px rgba(76, 175, 80, 0.1);
+    font-size: 40px;
+    -webkit-animation: badge-pop 0.6s ease-out forwards;
+    animation: badge-pop 0.6s ease-out forwards;
+  }
+
+  @-webkit-keyframes badge-pop {
+    0% { -webkit-transform: scale(0); transform: scale(0); opacity: 0; }
+    60% { -webkit-transform: scale(1.15); transform: scale(1.15); opacity: 1; }
+    100% { -webkit-transform: scale(1); transform: scale(1); opacity: 1; }
+  }
+
+  @keyframes badge-pop {
+    0% { transform: scale(0); opacity: 0; }
+    60% { transform: scale(1.15); opacity: 1; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+
+  /* ═══ HEADLINE ═══ */
+  .headline {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: 30px;
+    color: #e8d48b;
+    text-align: center;
+    line-height: 1.3;
+  }
+
+  .sub-headline {
+    font-family: 'Cinzel', serif;
+    font-weight: 600;
+    font-size: 16px;
+    color: #c9a84c;
+    text-align: center;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ═══ DIVIDER ═══ */
+  .divider {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #8a7030, transparent);
+  }
+
+  /* ═══ BODY ═══ */
+  .body-copy {
+    font-size: 16px;
+    line-height: 1.7;
+    color: #d0c8b8;
+    text-align: center;
+  }
+
+  .body-copy strong {
+    color: #e8d48b;
+  }
+
+  /* ═══ EMAIL ALERT BOX ═══ */
+  .email-box {
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 18px 22px;
+    border: 1px solid rgba(201, 168, 76, 0.25);
+    border-radius: 10px;
+    background: rgba(201, 168, 76, 0.04);
+  }
+
+  .email-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .email-content {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .email-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #e8d48b;
+    letter-spacing: 0.5px;
+  }
+
+  .email-text {
+    font-size: 13px;
+    color: #a09880;
+    line-height: 1.5;
+  }
+
+  .email-text strong {
+    color: #d0c8b8;
+  }
+
+  /* ═══ STEPS ═══ */
+  .steps {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+  }
+
+  .step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #c9a84c, #8a7030);
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: 14px;
+    color: #0a0a14;
+    flex-shrink: 0;
+  }
+
+  .step-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .step-title {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: #e8d48b;
+  }
+
+  .step-text {
+    font-size: 13px;
+    color: #a09880;
+    line-height: 1.4;
+  }
+
+  /* ═══ ACCESS BUTTON ═══ */
+  .access-button {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 480px;
+    padding: 22px 32px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    background: linear-gradient(180deg, #c9a84c 0%, #a08030 50%, #8a7030 100%);
+    box-shadow:
+      0 0 20px rgba(201, 168, 76, 0.3),
+      0 0 60px rgba(201, 168, 76, 0.1),
+      0 4px 15px rgba(0, 0, 0, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.25);
+    -webkit-animation: button-pulse 2s ease-in-out infinite;
+    animation: button-pulse 2s ease-in-out infinite;
+  }
+
+  @-webkit-keyframes button-pulse {
+    0%, 100% { -webkit-transform: scale(1); transform: scale(1); }
+    50% { -webkit-transform: scale(1.04); transform: scale(1.04); }
+  }
+
+  @keyframes button-pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+  }
+
+  .access-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    -webkit-animation: shimmer 3s ease-in-out infinite;
+    animation: shimmer 3s ease-in-out infinite;
+  }
+
+  @-webkit-keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  @keyframes shimmer {
+    0% { left: -100%; }
+    50% { left: 150%; }
+    100% { left: 150%; }
+  }
+
+  .access-icon {
+    font-size: 22px;
+    margin-bottom: 2px;
+  }
+
+  .access-main-text {
+    font-family: 'Cinzel', serif;
+    font-weight: 800;
+    font-size: 18px;
+    color: #ffffff;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.3;
+    text-transform: uppercase;
+  }
+
+  .access-sub-text {
+    font-family: 'Lora', serif;
+    font-size: 12px;
+    color: rgba(255,255,255,0.8);
+    margin-top: 4px;
+    font-style: italic;
+    text-align: center;
+  }
+
+  /* ═══ BLESSING ═══ */
+  .blessing {
+    font-size: 15px;
+    font-style: italic;
+    color: #c9a84c;
+    text-align: center;
+    line-height: 1.5;
+    padding: 0 20px;
+  }
+
+  .signature {
+    font-family: 'Cinzel', serif;
+    font-weight: 700;
+    font-size: 14px;
+    color: #a09880;
+    text-align: center;
+  }
+
+  /* ═══ FOOTER ═══ */
+  .footer-divider {
+    width: 100%;
+    max-width: 400px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #2a2520, transparent);
+  }
+
+  .footer {
+    font-size: 11px;
+    color: #4a4438;
+    text-align: center;
+    line-height: 1.5;
+  }
+
+  .support-link {
+    color: #6a6050;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+
+  .support-link:hover {
+    color: #8a8070;
+  }
+
+  @media (max-width: 480px) {
+    .headline { font-size: 24px; }
+    .sub-headline { font-size: 13px; }
+    .body-copy { font-size: 14px; }
+    .access-main-text { font-size: 15px; }
+    .access-button { padding: 18px 24px; }
+    .email-box { padding: 14px 16px; }
+    .step { padding: 12px 14px; }
+  }
+</style>
 </head>
 <body>
 
-    <div class="card">
-        <div class="check">✅</div>
-        <h1>Thank You for Your Purchase!</h1>
-        <p class="subtitle">Your order has been confirmed. God bless you!</p>
+<div class="page-wrapper">
 
-        <div class="instructions">
-            <p><strong>What happens next:</strong></p>
-            <p>1. Check your email inbox for the access link.</p>
-            <p>2. If you don't see it within a few minutes, check your spam folder.</p>
-            <p>3. Save the email so you can access your content anytime.</p>
-        </div>
+  <div class="confirmed-badge">✓</div>
 
-        <p class="verse">"For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."</p>
-        <p class="verse-ref">JEREMIAH 29:11</p>
+  <div class="sub-headline">Order Confirmed</div>
+
+  <h1 class="headline">Thank You, Blessed One</h1>
+
+  <div class="divider"></div>
+
+  <p class="body-copy">
+    Your purchase is complete. You've made a <strong>powerful decision</strong> that will transform your spiritual life, your health, and your connection with the divine.
+  </p>
+
+  <!-- ═══ EMAIL ALERT ═══ -->
+  <div class="email-box">
+    <span class="email-icon">📧</span>
+    <div class="email-content">
+      <span class="email-title">Check Your Email</span>
+      <span class="email-text">
+        A confirmation email with your <strong>receipt and login details</strong> has been sent to the email you used during checkout. If you don't see it within a few minutes, check your <strong>spam or promotions folder</strong> and mark it as "not spam."
+      </span>
     </div>
+  </div>
 
-    <footer>2026 &copy; HolyMade &mdash; All rights reserved.</footer>
+  <!-- ═══ NEXT STEPS ═══ -->
+  <div class="steps">
+    <div class="step">
+      <span class="step-number">1</span>
+      <div class="step-content">
+        <span class="step-title">Check Your Email</span>
+        <span class="step-text">Open the confirmation email and save your login credentials.</span>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-number">2</span>
+      <div class="step-content">
+        <span class="step-title">Access the Members Area</span>
+        <span class="step-text">Click the button below to go straight to your sacred materials.</span>
+      </div>
+    </div>
+    <div class="step">
+      <span class="step-number">3</span>
+      <div class="step-content">
+        <span class="step-title">Begin Your Journey Tonight</span>
+        <span class="step-text">Start with the first prayer. Follow the guide. Your life is about to change.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ ACCESS BUTTON — change href to members area link ═══ -->
+  <a href="https://appsell-software.com/login_app/sacred-gate-codes" class="access-button">
+    <span class="access-icon">🔓</span>
+    <span class="access-main-text">Access Your Members Area Now</span>
+    <span class="access-sub-text">Instant access — no waiting required</span>
+  </a>
+
+  <div class="divider"></div>
+
+  <p class="blessing">
+    "May these prayers open doors that no man can shut,<br>
+    and may God's light guide every step of your journey."
+  </p>
+
+  <span class="signature">— Bishop Stefan Hesse</span>
+
+  <div class="footer-divider"></div>
+
+  <p class="footer">
+    Need help? Contact our support team<br>
+    <a href="#" class="support-link">-</a><br><br>
+    Sacred Gate Codes · All Rights Reserved
+  </p>
+
+</div>
 
 </body>
 </html>
