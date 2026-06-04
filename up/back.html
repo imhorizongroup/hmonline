@@ -23,117 +23,179 @@
   <style>
     *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
     html { scroll-behavior:smooth; }
+
     body {
       font-family:'Red Hat Display', sans-serif;
-      background:linear-gradient(20deg, #181c76, #020430);
+      background:linear-gradient(20deg, #181c76, #020430) !important;
       color:#fff;
       min-height:100vh;
       overflow-x:hidden;
+      margin:0 !important;
+      padding:0 !important;
       -webkit-font-smoothing:antialiased;
       user-select:none;
       -webkit-user-select:none;
       -moz-user-select:none;
+      display:flex !important;
+      flex-direction:column !important;
+      align-items:stretch !important;
+      gap:0 !important;
     }
     img { -webkit-user-drag:none; user-select:none; pointer-events:none; }
     a { text-decoration:none; color:inherit; }
 
-    /* ========== URGENCY BAR (pink) ========== */
-    .urgency-bar {
-      background:#f50052;
-      padding:15px 20px;
-      text-align:center;
+    /* ========== PAGE WRAPPER (blindagem total) ========== */
+    #upsell-page {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      min-width:100% !important;
+      max-width:100% !important;
+      margin:0 !important;
+      padding:0 !important;
+      flex:none !important;
+      flex-shrink:0 !important;
+      flex-grow:0 !important;
+      float:none !important;
+      transform:none !important;
+      order:-1 !important;
+      z-index:1;
+    }
+
+    /* ========== URGENCY BAR ========== */
+    #upsell-urgency-bar {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:100% !important;
+      margin:0 !important;
+      left:0 !important;
+      right:0 !important;
+      background:#f50052 !important;
+      padding:15px 20px !important;
+      text-align:center !important;
       font-size:18px;
       font-weight:700;
-      color:#fff;
+      color:#fff !important;
       line-height:1.5;
     }
-    .urgency-bar .yellow {
-      color:#fff400;
+    #upsell-urgency-bar .yellow {
+      color:#fff400 !important;
       font-weight:900;
     }
     @media(max-width:600px) {
-      .urgency-bar { font-size:14px; padding:12px 16px; }
+      #upsell-urgency-bar { font-size:13px !important; padding:10px 10px !important; }
     }
 
     /* ========== MAIN CONTAINER ========== */
-    .main-wrapper {
-      max-width:900px;
-      margin:0 auto;
-      padding:48px 20px 60px;
+    #upsell-main {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:900px !important;
+      margin:0 auto !important;
+      padding:48px 20px 60px !important;
     }
     @media(max-width:600px) {
-      .main-wrapper { padding:24px 12px 40px; }
+      #upsell-main { padding:12px 10px 20px !important; }
     }
 
     /* ========== HEADLINE ========== */
-    .headline {
-      text-align:center;
+    #upsell-headline {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      text-align:center !important;
       font-size:36px;
       font-weight:700;
       line-height:1.35;
-      color:#fff;
-      margin-bottom:36px;
+      color:#fff !important;
+      margin:0 auto 36px auto !important;
+      padding:0 10px !important;
     }
-    .headline .important {
+    #upsell-headline .important {
       color:#f50052;
       display:block;
       margin-bottom:4px;
     }
-    .headline .orange-highlight {
+    #upsell-headline .orange-highlight {
       background:#ff914d;
       color:#fff;
       padding:2px 8px;
       border-radius:4px;
     }
     @media(max-width:600px) {
-      .headline { font-size:20px; line-height:1.35; margin-bottom:24px; }
+      #upsell-headline { font-size:18px !important; line-height:1.3; margin:0 auto 10px auto !important; padding:0 6px !important; }
     }
 
     /* ========== VIDEO SECTION ========== */
-    .video-wrapper {
-      max-width:800px;
-      margin:0 auto 0;
-      text-align:center;
+    #upsell-video {
+      display:block !important;
+      position:relative !important;
+      width:55% !important;
+      max-width:460px !important;
+      margin:0 auto !important;
+      text-align:center !important;
+      overflow:visible;
+    }
+    #upsell-video vturb-smartplayer {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      max-width:460px !important;
+      margin:0 auto !important;
+    }
+    @media(max-width:600px) {
+      #upsell-video { width:96% !important; max-width:100% !important; }
+      #upsell-video vturb-smartplayer { max-width:100% !important; }
     }
 
     /* ========== FOOTER ========== */
-    .footer {
-      text-align:center;
+    #upsell-footer {
+      display:block !important;
+      position:relative !important;
+      width:100% !important;
+      text-align:center !important;
       padding:40px 20px;
       color:rgba(255,255,255,0.2);
       font-size:12px;
+      float:none !important;
+      transform:none !important;
     }
   </style>
 </head>
 <body>
 
-  <!-- ===== URGENCY BAR ===== -->
-  <div class="urgency-bar">
-    <span class="yellow">WAIT</span>: DO NOT CLOSE THIS PAGE — WATCH THIS IMPORTANT MESSAGE BEFORE LEAVING.
-  </div>
+  <!-- WRAPPER BLINDADO -->
+  <div id="upsell-page">
 
-  <!-- ===== MAIN CONTENT ===== -->
-  <div class="main-wrapper">
+    <!-- URGENCY BAR -->
+    <div id="upsell-urgency-bar">
+      <span class="yellow">WAIT</span>: DO NOT CLOSE THIS PAGE — WATCH THIS IMPORTANT MESSAGE BEFORE LEAVING.
+    </div>
 
-    <!-- HEADLINE -->
-    <h1 class="headline">
-      <span class="important">IMPORTANT:</span>
-      You were about to miss the <span class="orange-highlight">healing frequencies...</span>
-      Watch this short message before you go!
-    </h1>
+    <!-- MAIN CONTENT -->
+    <div id="upsell-main">
+      <h1 id="upsell-headline">
+        <span class="important">IMPORTANT:</span>
+        You were about to miss the <span class="orange-highlight">healing frequencies...</span>
+        Watch this short message before you go!
+      </h1>
 
-    <!-- VIDEO (UPSELL 2) -->
-    <div class="video-wrapper">
-      <vturb-smartplayer id="vid-6a202ba36ae7d357e656fae6" style="display:block;margin:0 auto;width:100%;max-width:800px"></vturb-smartplayer>
-      <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202ba36ae7d357e656fae6/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
+      <!-- VIDEO (UPSELL 2) -->
+      <div id="upsell-video">
+        <vturb-smartplayer id="vid-6a202ba36ae7d357e656fae6" style="display:block;margin:0 auto;width:100%;max-width:460px"></vturb-smartplayer>
+        <script type="text/javascript">var s=document.createElement("script");s.src="https://scripts.converteai.net/3955d996-4714-432f-a45d-a92003d6a0a7/players/6a202ba36ae7d357e656fae6/v4/player.js",s.async=!0,document.head.appendChild(s);</script>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="upsell-footer">
+      All rights reserved © <span id="footerYear"></span>
     </div>
 
   </div>
-
-  <!-- FOOTER -->
-  <div class="footer">
-    All rights reserved © <span id="footerYear"></span>
-  </div>
+  <!-- FIM DO WRAPPER -->
 
   <script>
     document.getElementById('footerYear').textContent = new Date().getFullYear();
